@@ -10,7 +10,7 @@ twitter-card:
   site: "@STytiuk"
 ---
 
-Serhii Tytiuk is a quantitative researcher and polling professional. He has a 3-year experience in a survey research, research methods and data analysis.
+> Serhii Tytiuk is a quantitative researcher and polling professional. He has a 3-year experience in a survey research, research methods and data analysis.
 
 ![random photo](photo_2022-06-11_10-53-06.jpg){fig-align="center"}
 
