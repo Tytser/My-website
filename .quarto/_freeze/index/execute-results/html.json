@@ -1,0 +1,16 @@
+{
+  "hash": "24e597123fa4b0022f24e340a8eccc31",
+  "result": {
+    "markdown": "---\ntitle: \"Serhii Tytiuk\"\ndescription: \"Personal website\"\nsearch: true\nnavbar:\nexecute: \n  background: \"red\"\nopen-graph: true\ntwitter-card: \n  site: \"@STytiuk\"\n---\n\n\nSerhii Tytiuk is a quantitative researcher and polling professional. He has a 3-year experience in a survey research, research methods and data analysis.\n\n![random photo](photo_2022-06-11_10-53-06.jpg){fig-align=\"center\"}\n\n# WORK EXPERIENCE\n\n*Analyst, the Ukrainian Institute*\n\n-   Conducting research on the state and prospects of Ukrainian studies in the world (compiling a database, developing a questionnaire)\n\n-   Writing informational materials on the Ukrainian cultural heritage destroyed during the war (project \"Postcards from Ukraine\")\n\n-   Writing analytical notes for the Ministry of Foreign Affairs of Ukraine on the topic of cultural diplomacy\n\n# EDUCATION\n\n**Kyiv School of Economics** 2020-in progress\n\nMaster's degree in Public Policy and Governance\n\nThesis: Overcoming the consequences of unequal access of students from different territories of Ukraine to secondary education due to the COVID-19 pandemic and the war with Russia\n\n**Taras Shevchenko National University of Kyiv** 2013-2017\n\nBachelor's degree, Political science\n\nThesis: The Impact of Automation on Social Inequality and Democracy\n\n\n::: {.cell layout-ncol=\"2\"}\n::: {.cell-output-display}\n![Speed and Stopping Distances of Cars](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n::: {.cell-output-display}\n![Vapor Pressure of Mercury as a Function of Temperature](index_files/figure-html/unnamed-chunk-1-2.png){width=672}\n:::\n:::\n\n\n# SKILLS\n\n## LANGUAGES\n\n| Language  | Reading | Writing | Speaking |\n|-----------|:-------:|:-------:|:--------:|\n| English   |   C1    |   B2    |    B2    |\n| Ukrainian |   C2    |   C2    |    C2    |\n| Polish    |   A1    |   A1    |    A1    |\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
