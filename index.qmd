@@ -12,7 +12,6 @@ twitter-card:
 
 Serhii Tytiuk is a quantitative researcher and polling professional. He has a 3-year experience in a survey research, research methods and data analysis (pretend to have it)
 
-
 ![random photo](images/photo_2022-06-11_10-53-06.jpg){fig-align="center"}
 
 ## WORK EXPERIENCE
@@ -31,26 +30,17 @@ Writing analytical notes for the Ministry of Foreign Affairs of Ukraine on the t
 
     -   Study on decentralization with a sample of 31 thousand respondents for the DOBRE program (USAID) with treatment and control groups of consolidated communities (85 CCs in total) in2019 (used difference-in-differences for impact evaluation). I also wrote a proposal for the second wave of the study, which was successful, and an additional 10,000 interviews were conducted in 25 communities.
 
-    -   A series of 5polls before the parliamentary elections in Georgia in 2020 and 3 polls before the
-        local elections in 2021 for the Mtavari TV channel. Project management of exit polls in 2020
-        and 2021 (responsible for data collection tool, fieldwork monitoring and data processing)
+    -   A series of 5polls before the parliamentary elections in Georgia in 2020 and 3 polls before the local elections in 2021 for the Mtavari TV channel. Project management of exit polls in 2020 and 2021 (responsible for data collection tool, fieldwork monitoring and data processing)
 
-    -   Parallel study on the perception of media narratives in the Baltic countries with a national
-        representative sample in each country (3000 respondents, USAID)
+    -   Parallel study on the perception of media narratives in the Baltic countries with a national representative sample in each country (3000 respondents, USAID)
 
-    -   Damage assessment analysis of the war in Donbas for the World Bank (data collection and
-        preliminary analysis on changes and the current situation in the Donetsk and Lugansk oblasts
-        in the following sectors: education, healthcare, energy, transportation, WASH)
+    -   Damage assessment analysis of the war in Donbas for the World Bank (data collection and preliminary analysis on changes and the current situation in the Donetsk and Lugansk oblasts in the following sectors: education, healthcare, energy, transportation, WASH)
 
-    -   Survey on cybersecurity in Ukraine and Moldova in 2021: nationwide surveys of the general
-        population and enterprises (Council of Europe)
+    -   Survey on cybersecurity in Ukraine and Moldova in 2021: nationwide surveys of the general population and enterprises (Council of Europe)
 
-    -   Other studies in Ukraine and abroad (Belarus, Georgia, Moldova) for clients such as NDI
-        (account manager of this client), Norwegian Refugee Council (account manager of this client),
-        IRI, GIZ, U-LEAD, Sayara International, ICRC, IFC, Rustavi, etc.
+    -   Other studies in Ukraine and abroad (Belarus, Georgia, Moldova) for clients such as NDI (account manager of this client), Norwegian Refugee Council (account manager of this client), IRI, GIZ, U-LEAD, Sayara International, ICRC, IFC, Rustavi, etc.
 
--   Participation in the methodology development of most projects in the department of social and
-    political research, sample design for all projects
+-   Participation in the methodology development of most projects in the department of social and political research, sample design for all projects
 
 ## EDUCATION
 
@@ -81,6 +71,30 @@ Thesis: The Impact of Automation on Social Inequality and Democracy
 ### MOOCs
 
 Datacamp: data analysis and statistics in R; edX: Data Analysis for Social Scientists (MIT), Evaluating Social Programs (MIT), Introduction to Data Analysis using Excel (Microsoft), Global Media, War, and Technology (The University of Queensland); Udemy: R Programming A-Z; Udacity: Statistics; Coursera: Microeconomics, Macroeconomics, Public Economics, Economic Sociology (НИУ ВШЕ), etc.
+
+## SOCIAL AND POLITICAL ACTIVITIES 
+
+-   Facilitator/speaker, Political Club of KNU September 2016 -- December 2018
+
+    -   Organized lectures about political issues, established communication with speakers
+
+    -   Managed social media (channel in Telegram, Facebook page)
+
+    -   Conducted events in collaboration with other organizations specialized in social sciences (VoxUkraine, Diplomatic Academy of Ukraine, Locus)
+
+-   Participant of Open University of Reforms by the Reanimation Package of Reforms September -- December 2016
+
+-   Intern, Centre of Political Studies and Analytics Eidos October 2016 -- January 2017
+
+    -   Analyzed urban development strategies of Ukrainian cities
+
+    -   Created a database of strategies based on requests to access public information
+
+-   Head of Department, NGO Liberal Democratic League of Ukraine 2015- 2017
+
+    -   Organized educational lectures on political issues
+
+    -   Developed organization's documents and materials for the website
 
 ## SKILLS
 
