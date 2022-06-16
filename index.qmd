@@ -72,7 +72,7 @@ Thesis: The Impact of Automation on Social Inequality and Democracy
 
 Datacamp: data analysis and statistics in R; edX: Data Analysis for Social Scientists (MIT), Evaluating Social Programs (MIT), Introduction to Data Analysis using Excel (Microsoft), Global Media, War, and Technology (The University of Queensland); Udemy: R Programming A-Z; Udacity: Statistics; Coursera: Microeconomics, Macroeconomics, Public Economics, Economic Sociology (НИУ ВШЕ), etc.
 
-## SOCIAL AND POLITICAL ACTIVITIES 
+## SOCIAL AND POLITICAL ACTIVITIES
 
 -   Facilitator/speaker, Political Club of KNU September 2016 -- December 2018
 

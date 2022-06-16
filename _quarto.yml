@@ -11,7 +11,12 @@ website:
       - about.qmd
     search: true
     background: "dark"
-    
+
+bibliography: [mylibrary.bib]
+biblio-style: apalike
+link-citations: yes
+reference-location: margin
+
 format:
   html:
     theme: cosmo

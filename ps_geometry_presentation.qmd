@@ -1,0 +1,118 @@
+---
+title: "Effect of Polling Station Geometry on Voter Turnout"
+author: "Serhii Tytiuk"
+format: revealjs
+fontsize: 8px
+---
+
+## The Problem
+
+-   Turnout in elections in Ukraine is quite low compared to European countries
+
+-   This is usually associated with political culture, distrust of the institution of elections, and so on.
+
+-   However, there are many studies that show the dependence of turnout on the spatial characteristics of electoral units.
+
+-   This study will shed light on this aspect in the Ukrainian context
+
+## Dataset overview
+
+The data was scraped before the full-scale war from the State Voters Register (polygons of electoral precincts) and the Central Election Commission (data on the 1st round of 2019 Presidential elections)
+
+**Summary statistics**
+
+```{r}
+#| warning: false
+#| echo: false
+#| output: false
+
+library(raster)
+library(sf)
+library(terra)
+library(tidyverse)
+library(Rcpp)
+library(tmap)
+library(readxl)
+library(stargazer)
+
+#data import
+shp <- '~/Desktop/kse_school/school_project/dilnytsi/dilnytsi.shp'
+ps <- st_read(shp) %>%
+  rename(ps_id = name)
+
+territories <- read_excel("~/Desktop/kse_school/school_project/Polling_stations.xlsx", sheet = "PS") %>%
+  rename(ps_id = "№ ВД", n_registered = "2.К-сть виборців, внесених до списку", region = 'Регіон',
+         size = "size...16") %>%
+  select(ps_id, region, oblast_y, size, cord_X, cord_Y, type)
+
+elections_t1 <- read_delim("~/Desktop/kse_school/school_project/elections_t1.tsv", 
+                           delim = "\t", escape_double = FALSE, 
+                           trim_ws = TRUE)
+
+round1 <- elections_t1 %>%
+  rename(ps_id = "№ ВД", n_registered = "2.К-сть виборців, внесених до списку",
+         voters = "9.К-сть виборців, які взяли участь у голосуванні",
+         invalid = "10.К-сть бюлетенів, визнаних недійсними", Boyko = "БойкоЮрій",
+         Zelenskyy = "ЗеленськийВолодимир", Poroshenko="ПорошенкоПетро", Tymoshenko = "ТимошенкоЮлія") %>%
+  select(ps_id, n_registered, voters, invalid, Boyko, Zelenskyy, Poroshenko, Tymoshenko, oblast, tvo) %>%
+  mutate(turnout = voters/n_registered, ps_id = as.double(ps_id))
+
+#merging the data
+ps_mod <- ps %>%
+  mutate(ps_id = as.double(ps_id)) %>%
+  select(ps_id, geometry)
+
+ps_full_round1 <- left_join(territories, round1, by="ps_id")
+ps_full_round1 <- left_join(ps_full_round1, ps_mod, by="ps_id")
+
+#removing ps with invalid coordinates
+bad_ps <- c(121606, 631539, 51675, 511452, 511453, 511267, 511272, 511451)
+
+ps_full_round1 <- ps_full_round1 %>%
+  filter(!(ps_id %in% bad_ps)) %>%
+  mutate(area = as.numeric(st_area(geometry)/1000000), density = n_registered/area)
+
+
+```
+
+```{r}
+#| echo: false
+
+knitr::opts_chunk$set(echo = FALSE)
+sum_table <- ps_full_round1 %>% 
+  select(n_registered, voters, area, density, turnout)
+
+stargazer(as.data.frame(sum_table), type = "text")
+```
+
+## Model
+
+```{r}
+#| warning: false
+#| echo: false
+model_dataset <- ps_full_round1[sample(1:nrow(ps_full_round1), 1000), ]
+mod1 <- lm(turnout ~ log(density) + log(n_registered) + size + region, model_dataset)
+stargazer(mod1, type="text")
+```
+
+## Visualization
+
+Here you can see a general visualization of turnout for all electoral precincts on the government-controlled territories on the 1st round of 2019 Presidential elections
+
+```{r}
+#| warning: false
+#| echo: false
+
+ps_viz <- st_sf(ps_full_round1)
+tmap_mode("view")
+ps_viz %>%
+  tm_shape() + 
+  tm_fill("turnout",
+          palette = "PuBu",
+          id="ps_id",
+          popup.vars=c("turnout")
+  ) + 
+  tm_legend(outside=TRUE) +
+  tm_layout(frame = FALSE) 
+
+```

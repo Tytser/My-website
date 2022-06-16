@@ -1,0 +1,23 @@
+---
+title: "test_pres"
+format: revealjs
+---
+
+## Slide 1
+
+dasdasdasda
+
+## Slide 2
+
+adsadasdasdas
+
+## Slide 3231
+
+```{r}
+#| warning: false
+
+library(ggplot2)
+ggplot(airquality, aes(Temp, Ozone)) + 
+        geom_point() + 
+        geom_smooth(method = "loess", se = FALSE)
+```

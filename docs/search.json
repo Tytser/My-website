@@ -47,5 +47,54 @@
     "title": "Serhii Tytiuk",
     "section": "SOCIAL AND POLITICAL ACTIVITIES",
     "text": "SOCIAL AND POLITICAL ACTIVITIES\n\nFacilitator/speaker, Political Club of KNU September 2016 – December 2018\n\nOrganized lectures about political issues, established communication with speakers\nManaged social media (channel in Telegram, Facebook page)\nConducted events in collaboration with other organizations specialized in social sciences (VoxUkraine, Diplomatic Academy of Ukraine, Locus)\n\nParticipant of Open University of Reforms by the Reanimation Package of Reforms September – December 2016\nIntern, Centre of Political Studies and Analytics Eidos October 2016 – January 2017\n\nAnalyzed urban development strategies of Ukrainian cities\nCreated a database of strategies based on requests to access public information\n\nHead of Department, NGO Liberal Democratic League of Ukraine 2015- 2017\n\nOrganized educational lectures on political issues\nDeveloped organization’s documents and materials for the website"
+  },
+  {
+    "objectID": "test_pres.html#slide-1",
+    "href": "test_pres.html#slide-1",
+    "title": "test_pres",
+    "section": "Slide 1",
+    "text": "Slide 1\ndasdasdasda"
+  },
+  {
+    "objectID": "test_pres.html#slide-2",
+    "href": "test_pres.html#slide-2",
+    "title": "test_pres",
+    "section": "Slide 2",
+    "text": "Slide 2\nadsadasdasdas"
+  },
+  {
+    "objectID": "test_pres.html#slide-3231",
+    "href": "test_pres.html#slide-3231",
+    "title": "test_pres",
+    "section": "Slide 3231",
+    "text": "Slide 3231"
+  },
+  {
+    "objectID": "ps_geometry_presentation.html#the-problem",
+    "href": "ps_geometry_presentation.html#the-problem",
+    "title": "Effect of Polling Station Geometry on Voter Turnout",
+    "section": "The Problem",
+    "text": "The Problem\n\nTurnout in elections in Ukraine is quite low compared to European countries\nThis is usually associated with political culture, distrust of the institution of elections, and so on.\nHowever, there are many studies that show the dependence of turnout on the spatial characteristics of electoral units.\nThis study will shed light on this aspect in the Ukrainian context"
+  },
+  {
+    "objectID": "ps_geometry_presentation.html#dataset-overview",
+    "href": "ps_geometry_presentation.html#dataset-overview",
+    "title": "Effect of Polling Station Geometry on Voter Turnout",
+    "section": "Dataset overview",
+    "text": "Dataset overview\nThe data was scraped before the full-scale war from the State Voters Register (polygons of electoral precincts) and the Central Election Commission (data on the 1st round of 2019 Presidential elections)\nSummary statistics\n\n\n\n\n\n\n=========================================================\nStatistic      N      Mean    St. Dev.   Min      Max    \n---------------------------------------------------------\nn_registered 28,740 1,025.734  741.860   15      2,961   \nvoters       28,740  650.863   478.643    4      2,164   \narea         28,740  19.357    24.172   0.006   463.464  \ndensity      28,740 2,674.455 6,980.165 0.119 202,019.200\nturnout      28,740   0.646     0.082   0.021    1.000   \n---------------------------------------------------------"
+  },
+  {
+    "objectID": "ps_geometry_presentation.html#visualization",
+    "href": "ps_geometry_presentation.html#visualization",
+    "title": "Effect of Polling Station Geometry on Voter Turnout",
+    "section": "Visualization",
+    "text": "Visualization\nHere you can see a general visualization of turnout for all electoral precincts on the government-controlled territories on the 1st round of 2019 Presidential elections"
+  },
+  {
+    "objectID": "ps_geometry_presentation.html#model",
+    "href": "ps_geometry_presentation.html#model",
+    "title": "Effect of Polling Station Geometry on Voter Turnout",
+    "section": "Model",
+    "text": "Model\n\n\n\n===============================================\n                        Dependent variable:    \n                    ---------------------------\n                              turnout          \n-----------------------------------------------\nlog(density)                 0.012***          \n                              (0.002)          \n                                               \nlog(n_registered)            -0.041***         \n                              (0.004)          \n                                               \nsize0-50k                     -0.004           \n                              (0.014)          \n                                               \nsize100-499k                   0.010           \n                              (0.010)          \n                                               \nsize500k+                    0.062***          \n                              (0.012)          \n                                               \nsizerural                     0.025**          \n                              (0.012)          \n                                               \nregionм.Київ                 -0.036**          \n                              (0.015)          \n                                               \nregionПівдень                -0.077***         \n                              (0.009)          \n                                               \nregionПівніч                   0.007           \n                              (0.007)          \n                                               \nregionСхід                   -0.033***         \n                              (0.007)          \n                                               \nregionЦентр                    0.005           \n                              (0.006)          \n                                               \nConstant                     0.855***          \n                              (0.027)          \n                                               \n-----------------------------------------------\nObservations                   1,000           \nR2                             0.251           \nAdjusted R2                    0.242           \nResidual Std. Error      0.070 (df = 988)      \nF Statistic          30.064*** (df = 11; 988)  \n===============================================\nNote:               *p<0.1; **p<0.05; ***p<0.01"
   }
 ]
