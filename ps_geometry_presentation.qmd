@@ -2,24 +2,23 @@
 title: "Effect of Polling Station Geometry on Voter Turnout"
 author: "Serhii Tytiuk"
 format: revealjs
-fontsize: 8px
 ---
 
-## The Problem
+## Problem
 
--   Turnout in elections in Ukraine is quite low compared to European countries
+<font size="5">
 
--   This is usually associated with political culture, distrust of the institution of elections, and so on.
+-   Turnout in Ukraine elections is quite low compared to European countries
+
+-   This is usually associated with political culture, distrust of elections, and so on.
 
 -   However, there are many studies that show the dependence of turnout on the spatial characteristics of electoral units.
 
--   This study will shed light on this aspect in the Ukrainian context
+This small study will shed light on this aspect in the Ukrainian context </font>
 
 ## Dataset overview
 
-The data was scraped before the full-scale war from the State Voters Register (polygons of electoral precincts) and the Central Election Commission (data on the 1st round of 2019 Presidential elections)
-
-**Summary statistics**
+<font size="5">The data was scraped before the full-scale war from the State Voters Register (polygons of electoral precincts) and the Central Election Commission (data on the 1st and 2nd rounds of 2019 Presidential elections)</font>
 
 ```{r}
 #| warning: false
@@ -50,12 +49,20 @@ elections_t1 <- read_delim("~/Desktop/kse_school/school_project/elections_t1.tsv
                            trim_ws = TRUE)
 
 round1 <- elections_t1 %>%
-  rename(ps_id = "№ ВД", n_registered = "2.К-сть виборців, внесених до списку",
-         voters = "9.К-сть виборців, які взяли участь у голосуванні",
-         invalid = "10.К-сть бюлетенів, визнаних недійсними", Boyko = "БойкоЮрій",
-         Zelenskyy = "ЗеленськийВолодимир", Poroshenko="ПорошенкоПетро", Tymoshenko = "ТимошенкоЮлія") %>%
-  select(ps_id, n_registered, voters, invalid, Boyko, Zelenskyy, Poroshenko, Tymoshenko, oblast, tvo) %>%
-  mutate(turnout = voters/n_registered, ps_id = as.double(ps_id))
+  rename(ps_id = "№ ВД", n_registered_1st = "2.К-сть виборців, внесених до списку",
+         voters_1st = "9.К-сть виборців, які взяли участь у голосуванні") %>%
+  select(ps_id, n_registered_1st, voters_1st) %>%
+  mutate(turnout_1st = voters_1st/n_registered_1st, ps_id = as.double(ps_id))
+
+elections_t2 <- read_delim("~/Desktop/kse_school/school_project/elections_t2.tsv", 
+                           delim = "\t", escape_double = FALSE, 
+                           trim_ws = TRUE)
+
+round2 <- elections_t2 %>%
+  rename(ps_id = "№ ВД", n_registered_2nd = "2.К-сть виборців, внесених до списку",
+         voters_2nd = "9.К-сть виборців, які взяли участь у голосуванні") %>%
+  select(ps_id, n_registered_2nd, voters_2nd) %>%
+  mutate(turnout_2nd = voters_2nd/n_registered_2nd, ps_id = as.double(ps_id))
 
 #merging the data
 ps_mod <- ps %>%
@@ -64,55 +71,67 @@ ps_mod <- ps %>%
 
 ps_full_round1 <- left_join(territories, round1, by="ps_id")
 ps_full_round1 <- left_join(ps_full_round1, ps_mod, by="ps_id")
+ps_full <- left_join(ps_full_round1, round2, by="ps_id")
 
 #removing ps with invalid coordinates
 bad_ps <- c(121606, 631539, 51675, 511452, 511453, 511267, 511272, 511451)
 
-ps_full_round1 <- ps_full_round1 %>%
+ps_full <- ps_full %>%
   filter(!(ps_id %in% bad_ps)) %>%
-  mutate(area = as.numeric(st_area(geometry)/1000000), density = n_registered/area)
-
-
+  mutate(area = as.numeric(st_area(geometry)/1000000), density = n_registered_1st/area)
 ```
 
-```{r}
+<font size="5">
+
+```{r results = 'asis'}
 #| echo: false
 
-knitr::opts_chunk$set(echo = FALSE)
-sum_table <- ps_full_round1 %>% 
-  select(n_registered, voters, area, density, turnout)
+sum_table <- ps_full %>% 
+  select(n_registered_1st, voters_1st, n_registered_2nd, voters_2nd, turnout_1st, turnout_2nd, area, density)
 
-stargazer(as.data.frame(sum_table), type = "text")
+stargazer(as.data.frame(sum_table), type = "html")
 ```
+
+</font>
 
 ## Model
 
-```{r}
+:::: {.columns}
+::: {.column width="50%"}
+<font size="3.5">
+
+```{r results = "asis"}
 #| warning: false
 #| echo: false
-model_dataset <- ps_full_round1[sample(1:nrow(ps_full_round1), 1000), ]
-mod1 <- lm(turnout ~ log(density) + log(n_registered) + size + region, model_dataset)
-stargazer(mod1, type="text")
+model_dataset <- ps_full[sample(1:nrow(ps_full), 1000), ]
+mod1 <- lm(turnout_1st ~ log(density) + log(n_registered_1st) + size + region, model_dataset)
+mod2 <- lm(turnout_2nd ~ log(density) + log(n_registered_2nd) + size + region, model_dataset)
+stargazer(mod1, mod2, type="html", single.row = TRUE)
 ```
 
-## Visualization
+</font>
+:::
 
-Here you can see a general visualization of turnout for all electoral precincts on the government-controlled territories on the 1st round of 2019 Presidential elections
+::: {.column width="50%"}
+<font size="5"> As we can see, density as a proxy variable of precinct shape is a highly significant in both cases
+</font>
+:::
+::::
+
+## Mapping
 
 ```{r}
 #| warning: false
 #| echo: false
 
-ps_viz <- st_sf(ps_full_round1)
-tmap_mode("view")
+ps_viz <- st_sf(ps_full)
 ps_viz %>%
   tm_shape() + 
-  tm_fill("turnout",
+  tm_fill("turnout_1st",
           palette = "PuBu",
           id="ps_id",
-          popup.vars=c("turnout")
+          popup.vars=c("turnout_1st")
   ) + 
   tm_legend(outside=TRUE) +
   tm_layout(frame = FALSE) 
-
 ```
